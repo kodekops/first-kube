@@ -31,3 +31,16 @@ We can run the following command to create a service:
 ```bash
 kubectl expose deployment my-app --type=NodePort --port 8080 --target-port 8080
 ```
+
+Now we can access the application using the following URL:
+
+````bash
+minikube service my-app
+```bash
+````
+
+We can also scale the deployment using the following command:
+
+```bash
+kubectl scale deployment/my-app --replicas=4
+```
