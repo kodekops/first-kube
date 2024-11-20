@@ -44,3 +44,41 @@ We can also scale the deployment using the following command:
 ```bash
 kubectl scale deployment/my-app --replicas=4
 ```
+
+We can update the deployment using the following command:
+
+```bash
+kubectl set image deployment/my-app my-app=kodega2016/first-kube:v2
+```
+
+We can view the deployment history using the following command:
+
+```bash
+kubectl rollout history deployment/my-app
+```
+
+To view the status of the deployment, we can use the following command:
+
+```bash
+kubectl rollout status deployment/my-app
+```
+
+We can view the roll out details using the following command:
+
+```bash
+kubectl rollout history deployment/my-app --revision=2
+```
+
+To rollback the deployment, we can use the following command:
+
+```bash
+kubectl roolout undo deployment/my-app
+```
+
+It will rollback to the previous version.
+
+If we need to rollback to a specific version, we can use the following command:
+
+```bash
+kubectl roolout undo deployment/my-app --to-revision=2
+```
