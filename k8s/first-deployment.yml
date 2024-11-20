@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-deployment
+  labels:
+    app: web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: my-first-kube
+          image: kodega2016/first-kube
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: first-deployment-node-port-service
+spec:
+  type: NodePort
+  selector:
+    app: web
+  ports:
+    - name: deployment
+      port: 8080
+      targetPort: 8080
