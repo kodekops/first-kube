@@ -36,7 +36,6 @@ Now we can access the application using the following URL:
 
 ````bash
 minikube service my-app
-```bash
 ````
 
 We can also scale the deployment using the following command:
@@ -81,4 +80,25 @@ If we need to rollback to a specific version, we can use the following command:
 
 ```bash
 kubectl roolout undo deployment/my-app --to-revision=2
+```
+
+That's it all using imperative commands. We can also use declarative way to
+provision the deployment.
+
+We have created deployment configuration inside the `k8s` folder.Now we can
+apply the configuration using the following command:
+
+```bash
+kubectl apply -f k8s
+```
+
+To delete the resources
+```bash
+kubectl delete -f k8s
+```
+We can update the deployment configuration and apply the changes using the
+same command.
+
+```
+kubectl apply -f k8s
 ```
