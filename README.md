@@ -34,9 +34,9 @@ kubectl expose deployment my-app --type=NodePort --port 8080 --target-port 8080
 
 Now we can access the application using the following URL:
 
-````bash
+```bash
 minikube service my-app
-````
+```
 
 We can also scale the deployment using the following command:
 
@@ -93,12 +93,26 @@ kubectl apply -f k8s
 ```
 
 To delete the resources
+
 ```bash
 kubectl delete -f k8s
 ```
+
 We can update the deployment configuration and apply the changes using the
 same command.
 
-```
+```bash
 kubectl apply -f k8s
 ```
+
+## Liveness Probe
+
+It determines when to restart a container,It check the health of the container.
+If the liveness probe fails, the container will be restarted.
+
+## Startup Probe
+
+Sometimes,the container may take time to start. In such cases, we can use the
+startup probe to determine when the container is ready.
+
+If the startup probe fails, the container will be restarted.
